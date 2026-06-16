@@ -8,11 +8,16 @@
         heroMedia.classList.add("is-developed");
     }
 
+    const storyMediaTargets = document.querySelectorAll(".story-media");
     const revealTargets = document.querySelectorAll(
-        ".story-image, .story-line, .site-footer__text, .site-footer__title, .site-footer__closing .app-store-badge"
+        ".story-line, .site-footer__text, .site-footer__title, .site-footer__closing .app-store-badge"
     );
 
-    if (revealTargets.length === 0) {
+    if (prefersReducedMotion) {
+        storyMediaTargets.forEach((el) => {
+            el.classList.add("is-developed");
+        });
+        revealTargets.forEach((el) => el.classList.add("is-visible"));
         return;
     }
 
@@ -21,11 +26,6 @@
             line.style.setProperty("--reveal-delay", `${index * 150}ms`);
         });
     });
-
-    if (prefersReducedMotion) {
-        revealTargets.forEach((el) => el.classList.add("is-visible"));
-        return;
-    }
 
     const observer = new IntersectionObserver(
         (entries) => {
@@ -44,5 +44,6 @@
         }
     );
 
+    storyMediaTargets.forEach((el) => observer.observe(el));
     revealTargets.forEach((el) => observer.observe(el));
 })();
