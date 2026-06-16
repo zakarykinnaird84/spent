@@ -14,6 +14,8 @@
     --footer-height: 80vh;
     --footer-text-size: clamp(40px, 6vw, 72px);
     --footer-padding: 48px;
+    --reveal-duration: 1s;
+    --reveal-ease: cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
 @font-face {
@@ -359,6 +361,33 @@ a {
 
 .story-line--close {
     margin-top: 0.65em;
+}
+
+/* Scroll reveal — inspired by editorial scroll sites */
+.story-image,
+.story-line,
+.site-footer__text,
+.site-footer__main .app-store-badge {
+    opacity: 0;
+    transition: opacity var(--reveal-duration) var(--reveal-ease);
+    transition-delay: var(--reveal-delay, 0ms);
+}
+
+.story-image.is-visible,
+.story-line.is-visible,
+.site-footer__text.is-visible,
+.site-footer__main .app-store-badge.is-visible {
+    opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .story-image,
+    .story-line,
+    .site-footer__text,
+    .site-footer__main .app-store-badge {
+        opacity: 1;
+        transition: none;
+    }
 }
 
 .site-footer {
