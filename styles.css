@@ -22,6 +22,9 @@
     --nav-fade-delay: calc(var(--hero-develop-delay) + var(--hero-develop-duration) * 0.55);
     --story-develop-duration: calc(var(--hero-develop-duration) / 2);
     --story-develop-delay: calc(var(--hero-develop-delay) / 2);
+    --polaroid-text: #f4f4f3;
+    --polaroid-text-dark: #222222;
+    --text-develop-duration: var(--hero-develop-duration);
 }
 
 @font-face {
@@ -490,7 +493,7 @@ a {
     font-size: var(--story-size);
     font-weight: 400;
     line-height: 1.15;
-    color: var(--text-primary);
+    color: var(--polaroid-text);
 }
 
 .story-line--lead {
@@ -501,27 +504,57 @@ a {
     margin-top: 0.65em;
 }
 
-/* Scroll reveal — inspired by editorial scroll sites */
-.story-line,
-.site-footer__text,
-.site-footer__title,
+/* Scroll reveal — polaroid develop on editorial text */
+@keyframes text-polaroid-develop {
+    from {
+        color: var(--polaroid-text);
+    }
+
+    to {
+        color: var(--text-primary);
+    }
+}
+
+@keyframes text-polaroid-develop-dark {
+    from {
+        color: var(--polaroid-text-dark);
+    }
+
+    to {
+        color: var(--night);
+    }
+}
+
+.story-line.is-visible {
+    will-change: color;
+    animation: text-polaroid-develop var(--text-develop-duration) var(--hero-develop-ease) var(--reveal-delay, 0ms) forwards;
+}
+
+.site-footer__text.is-visible {
+    will-change: color;
+    animation: text-polaroid-develop-dark var(--text-develop-duration) var(--hero-develop-ease) forwards;
+}
+
 .site-footer__closing .app-store-badge {
     opacity: 0;
     transition: opacity var(--reveal-duration) var(--reveal-ease);
-    transition-delay: var(--reveal-delay, 0ms);
 }
 
-.story-line.is-visible,
-.site-footer__text.is-visible,
-.site-footer__title.is-visible,
 .site-footer__closing .app-store-badge.is-visible {
     opacity: 1;
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .story-line,
-    .site-footer__text,
-    .site-footer__title,
+    .story-line {
+        color: var(--text-primary);
+        animation: none;
+    }
+
+    .site-footer__text {
+        color: var(--night);
+        animation: none;
+    }
+
     .site-footer__closing .app-store-badge {
         opacity: 1;
         transition: none;
@@ -549,7 +582,7 @@ a {
     font-size: var(--footer-text-size);
     font-weight: 400;
     line-height: 1.05;
-    color: var(--night);
+    color: var(--polaroid-text-dark);
 }
 
 .site-footer__closing {
