@@ -10,7 +10,7 @@
 
     const storyMediaTargets = document.querySelectorAll(".story-media");
     const revealTargets = document.querySelectorAll(
-        ".story-line, .site-footer__text, .site-footer__closing .app-store-badge"
+        ".story-line, .site-footer__text, .site-footer__title, .site-footer__closing .app-store-badge"
     );
 
     if (prefersReducedMotion) {

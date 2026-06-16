@@ -525,7 +525,8 @@ a {
     }
 }
 
-.story-line.is-visible {
+.story-line.is-visible,
+.site-footer__title.is-visible {
     will-change: color;
     animation: text-polaroid-develop var(--text-develop-duration) var(--hero-develop-ease) var(--reveal-delay, 0ms) forwards;
 }
@@ -545,7 +546,8 @@ a {
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .story-line {
+    .story-line,
+    .site-footer__title {
         color: var(--text-primary);
         animation: none;
     }
@@ -607,6 +609,7 @@ a {
 
 .site-footer__title {
     word-break: break-word;
+    color: var(--polaroid-text);
 }
 
 @media (min-width: 769px) {
@@ -662,6 +665,11 @@ a {
 
     .site-footer__title {
         transform: translateY(-0.04em);
+    }
+
+    .site-footer__credit {
+        padding: var(--menu-padding);
+        padding-bottom: calc(var(--menu-padding) + env(safe-area-inset-bottom, 0px));
     }
 
     .site-footer__closing {
