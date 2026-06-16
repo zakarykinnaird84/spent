@@ -14,7 +14,7 @@
     --footer-height: 80vh;
     --footer-text-size: clamp(40px, 6vw, 72px);
     --footer-padding: 48px;
-    --reveal-duration: 1s;
+    --reveal-duration: 1.35s;
     --reveal-ease: cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 

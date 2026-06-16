@@ -11,7 +11,7 @@
 
     document.querySelectorAll(".story-intro, .story-copy").forEach((group) => {
         group.querySelectorAll(".story-line").forEach((line, index) => {
-            line.style.setProperty("--reveal-delay", `${index * 120}ms`);
+            line.style.setProperty("--reveal-delay", `${index * 150}ms`);
         });
     });
 
@@ -32,8 +32,8 @@
             });
         },
         {
-            threshold: 0.15,
-            rootMargin: "0px 0px -8% 0px",
+            threshold: 0.08,
+            rootMargin: "0px 0px 15% 0px",
         }
     );
 
