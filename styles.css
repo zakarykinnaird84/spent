@@ -1,0 +1,299 @@
+/* Figma tokens — file IQTXoSvIH6yAjoppLTlvnV, frame 579:6533 */
+:root {
+    --night: #383838;
+    --text-dimmed: #bfbfbf;
+    --background: #ffffff;
+    --text-primary: #000000;
+    --badge-border: #a6a6a6;
+    --page-padding: 48px;
+    --menu-height: 63px;
+    --section-gap: 48px;
+    --title-size: 128px;
+}
+
+@font-face {
+    font-family: "Instrument Serif";
+    src: url("fonts/InstrumentSerif-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+    scroll-behavior: smooth;
+}
+
+body {
+    height: 100%;
+    background-color: var(--background);
+    color: var(--text-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.page {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Figma Desktop frame — nav + hero + title = one viewport */
+.top-screen {
+    width: 100%;
+    height: 100dvh;
+    max-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: var(--page-padding);
+    padding-right: var(--page-padding);
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+    overflow: hidden;
+}
+
+/* Section: menu — 579:6534 */
+.menu {
+    width: 100%;
+    height: var(--menu-height);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-top: 24px;
+    padding-bottom: 24px;
+    flex-shrink: 0;
+}
+
+.nav {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 12px;
+    line-height: normal;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.nav-link {
+    font-weight: 500;
+}
+
+.nav-link--active {
+    color: var(--night);
+}
+
+.nav-link--dimmed {
+    color: var(--text-dimmed);
+    grid-column: 2;
+    justify-self: center;
+    cursor: default;
+}
+
+.nav-link:first-child {
+    font-weight: 600;
+    justify-self: start;
+}
+
+.nav-link--download {
+    justify-self: end;
+}
+
+/* Figma content column — 579:6540 */
+.home-frame {
+    width: 100%;
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Section: hero — 579:6541 */
+.hero {
+    position: relative;
+    width: 100%;
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+}
+
+.hero-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    object-fit: cover;
+    object-position: center;
+    pointer-events: none;
+}
+
+/* Section: title row — 579:6542 + 579:6544 */
+.title-row {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-shrink: 0;
+    padding-top: var(--section-gap);
+    padding-bottom: var(--page-padding);
+    min-height: calc(var(--title-size) + var(--section-gap) + var(--page-padding));
+}
+
+.title {
+    font-family: "Instrument Serif", Georgia, "Times New Roman", serif;
+    font-size: var(--title-size);
+    font-weight: 400;
+    line-height: 1;
+    color: var(--text-primary);
+    word-break: break-word;
+}
+
+@media (min-width: 769px) {
+    .title {
+        /* Serif cap height sits low in the em box at large sizes */
+        transform: translateY(-0.06em);
+    }
+}
+
+/* App Store badge — Component 2, 579:6544 */
+.app-store-badge {
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+    width: 120px;
+    height: 40px;
+    padding: 0;
+    background: #000000;
+    border: 1px solid var(--badge-border);
+    border-radius: 6px;
+    overflow: hidden;
+    transition: opacity 0.2s ease;
+}
+
+.app-store-badge:hover {
+    opacity: 0.88;
+}
+
+.app-store-badge__icon {
+    position: relative;
+    width: 20px;
+    height: 24px;
+    margin-left: 7px;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.app-store-badge__icon img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.app-store-badge__copy {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin-left: 8px;
+    color: #ffffff;
+}
+
+.app-store-badge__line {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif;
+    font-size: 9px;
+    font-weight: 500;
+    line-height: 9px;
+}
+
+.app-store-badge__store {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.47px;
+}
+
+@media (max-width: 1200px) {
+    :root {
+        --title-size: clamp(64px, 8vw, 128px);
+        --section-gap: clamp(24px, 3vh, 48px);
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --page-padding: 24px;
+        --menu-height: 56px;
+        --title-size: clamp(48px, 12vw, 96px);
+        --section-gap: clamp(16px, 2.5vh, 32px);
+    }
+
+    .menu {
+        align-items: center;
+        height: auto;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .title-row {
+        align-items: center;
+        gap: 16px;
+        min-height: auto;
+        padding-top: var(--section-gap);
+        padding-bottom: 24px;
+    }
+
+    .title {
+        transform: translateY(-0.04em);
+    }
+}
+
+@media (max-height: 700px) {
+    :root {
+        --menu-height: 48px;
+        --title-size: clamp(40px, 10vh, 80px);
+        --section-gap: 16px;
+    }
+
+    .menu {
+        align-items: center;
+        height: auto;
+        padding-top: 16px;
+        padding-bottom: 16px;
+    }
+
+    .title-row {
+        padding-bottom: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav {
+        font-size: 11px;
+    }
+}
