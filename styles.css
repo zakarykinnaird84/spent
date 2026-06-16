@@ -1,12 +1,12 @@
-/* Figma tokens — file IQTXoSvIH6yAjoppLTlvnV, frame 579:6533 */
+/* Figma tokens — file IQTXoSvIH6yAjoppLTlvnV, frame 585:6566 */
 :root {
     --night: #383838;
     --text-dimmed: #bfbfbf;
     --background: #ffffff;
     --text-primary: #000000;
     --badge-border: #a6a6a6;
-    --page-padding: 48px;
-    --menu-height: 63px;
+    --page-padding: 40px;
+    --menu-padding: 20px;
     --section-gap: 48px;
     --title-size: 128px;
 }
@@ -25,6 +25,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 html {
@@ -36,8 +38,6 @@ body {
     height: 100%;
     background-color: var(--background);
     color: var(--text-primary);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
 }
 
@@ -76,23 +76,23 @@ a {
 /* Section: menu — 579:6534 */
 .menu {
     width: 100%;
-    height: var(--menu-height);
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     justify-content: center;
-    padding-top: 24px;
-    padding-bottom: 24px;
+    padding-top: var(--menu-padding);
+    padding-bottom: var(--menu-padding);
     flex-shrink: 0;
 }
 
 .nav {
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr auto 1fr;
+    grid-template-columns: repeat(4, 1fr);
     align-items: center;
-    font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-family: "Helvetica Neue", Helvetica, Inter, sans-serif;
     font-size: 12px;
-    line-height: normal;
+    font-weight: 500;
+    line-height: 1;
     text-transform: uppercase;
     white-space: nowrap;
 }
@@ -105,19 +105,24 @@ a {
     color: var(--night);
 }
 
+.nav-link--spent {
+    grid-column: 1;
+    justify-self: start;
+}
+
+.nav-spacer {
+    grid-column: 2;
+}
+
 .nav-link--dimmed {
     color: var(--text-dimmed);
-    grid-column: 2;
+    grid-column: 3;
     justify-self: center;
     cursor: default;
 }
 
-.nav-link:first-child {
-    font-weight: 600;
-    justify-self: start;
-}
-
 .nav-link--download {
+    grid-column: 4;
     justify-self: end;
 }
 
@@ -247,8 +252,7 @@ a {
 
 @media (max-width: 768px) {
     :root {
-        --page-padding: 24px;
-        --menu-height: 56px;
+        --page-padding: 20px;
         --title-size: clamp(48px, 12vw, 96px);
         --section-gap: clamp(16px, 2.5vh, 32px);
     }
@@ -256,8 +260,8 @@ a {
     .menu {
         align-items: center;
         height: auto;
-        padding-top: 20px;
-        padding-bottom: 20px;
+        padding-top: var(--menu-padding);
+        padding-bottom: var(--menu-padding);
     }
 
     .title-row {
@@ -265,7 +269,7 @@ a {
         gap: 16px;
         min-height: auto;
         padding-top: var(--section-gap);
-        padding-bottom: 24px;
+        padding-bottom: 20px;
     }
 
     .title {
@@ -275,7 +279,6 @@ a {
 
 @media (max-height: 700px) {
     :root {
-        --menu-height: 48px;
         --title-size: clamp(40px, 10vh, 80px);
         --section-gap: 16px;
     }
@@ -283,8 +286,8 @@ a {
     .menu {
         align-items: center;
         height: auto;
-        padding-top: 16px;
-        padding-bottom: 16px;
+        padding-top: var(--menu-padding);
+        padding-bottom: var(--menu-padding);
     }
 
     .title-row {
