@@ -11,9 +11,9 @@
     --title-size: 128px;
     --story-size: clamp(32px, 5.5vw, 88px);
     --story-block-gap: 120px;
-    --footer-height: 80vh;
     --footer-text-size: clamp(40px, 6vw, 72px);
     --footer-padding: 48px;
+    --footer-top-gap: 40px;
     --reveal-duration: 1.35s;
     --reveal-ease: cubic-bezier(0.25, 0.1, 0.25, 1);
     --hero-develop-duration: 6.5s;
@@ -573,17 +573,26 @@ a {
 
 .site-footer {
     width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+    padding-top: 0;
     padding-left: var(--page-padding);
     padding-right: var(--page-padding);
+    display: flex;
+    flex-direction: column;
 }
 
 .site-footer__credit {
     width: 100%;
+    flex: 1 1 auto;
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;
-    min-height: var(--footer-height);
-    padding: var(--footer-padding);
+    min-height: 0;
+    margin-top: var(--footer-top-gap);
+    padding-right: var(--footer-padding);
+    padding-bottom: var(--footer-padding);
+    padding-left: var(--footer-padding);
     background: #000000;
 }
 
@@ -599,6 +608,7 @@ a {
 .site-footer__closing {
     position: relative;
     width: 100%;
+    flex-shrink: 0;
     display: flex;
     flex-direction: column;
     align-items: stretch;
@@ -663,8 +673,8 @@ a {
 @media (max-width: 768px) {
     :root {
         --story-block-gap: 72px;
-        --footer-height: 65vh;
         --footer-text-size: clamp(32px, 9vw, 48px);
+        --footer-top-gap: var(--menu-padding);
     }
 
     .story-intro {
