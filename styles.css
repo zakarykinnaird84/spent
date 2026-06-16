@@ -23,8 +23,10 @@
     --story-develop-duration: calc(var(--hero-develop-duration) / 2);
     --story-develop-delay: calc(var(--hero-develop-delay) / 2);
     --polaroid-text: #f4f4f3;
-    --polaroid-text-dark: #222222;
     --text-develop-duration: var(--hero-develop-duration);
+    --footer-develop-duration: calc(var(--text-develop-duration) * 1.5);
+    --footer-develop-delay: calc(var(--hero-develop-delay) * 2);
+    --footer-reveal-duration: calc(var(--reveal-duration) * 1.5);
 }
 
 @font-face {
@@ -515,34 +517,40 @@ a {
     }
 }
 
-@keyframes text-polaroid-develop-dark {
+@keyframes footer-credit-fade-in {
     from {
-        color: var(--polaroid-text-dark);
+        opacity: 0;
     }
 
     to {
-        color: var(--night);
+        opacity: 1;
     }
 }
 
-.story-line.is-visible,
-.site-footer__title.is-visible {
+.story-line.is-visible {
     will-change: color;
     animation: text-polaroid-develop var(--text-develop-duration) var(--hero-develop-ease) var(--reveal-delay, 0ms) forwards;
 }
 
-.site-footer__text.is-visible {
+.site-footer__title.is-visible {
     will-change: color;
-    animation: text-polaroid-develop-dark var(--text-develop-duration) var(--hero-develop-ease) forwards;
+    animation: text-polaroid-develop var(--footer-develop-duration) var(--hero-develop-ease) var(--footer-develop-delay) forwards;
+}
+
+.site-footer__text.is-visible {
+    will-change: opacity;
+    animation: footer-credit-fade-in var(--footer-develop-duration) var(--hero-develop-ease) var(--footer-develop-delay) forwards;
 }
 
 .site-footer__closing .app-store-badge {
     opacity: 0;
-    transition: opacity var(--reveal-duration) var(--reveal-ease);
+    transition: opacity var(--footer-reveal-duration) var(--reveal-ease);
+    transition-delay: 0ms;
 }
 
 .site-footer__closing .app-store-badge.is-visible {
     opacity: 1;
+    transition-delay: var(--footer-develop-delay);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -553,7 +561,7 @@ a {
     }
 
     .site-footer__text {
-        color: var(--night);
+        opacity: 1;
         animation: none;
     }
 
@@ -584,7 +592,8 @@ a {
     font-size: var(--footer-text-size);
     font-weight: 400;
     line-height: 1.05;
-    color: var(--polaroid-text-dark);
+    color: var(--night);
+    opacity: 0;
 }
 
 .site-footer__closing {
