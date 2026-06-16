@@ -2,7 +2,7 @@
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     const revealTargets = document.querySelectorAll(
-        ".story-image, .story-line, .site-footer__text, .site-footer__main .app-store-badge"
+        ".story-image, .story-line, .site-footer__text, .site-footer__title, .site-footer__closing .app-store-badge"
     );
 
     if (revealTargets.length === 0) {
