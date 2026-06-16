@@ -16,6 +16,9 @@
     --footer-padding: 48px;
     --reveal-duration: 1.35s;
     --reveal-ease: cubic-bezier(0.25, 0.1, 0.25, 1);
+    --hero-develop-duration: 6.5s;
+    --hero-develop-delay: 0.7s;
+    --hero-develop-ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 @font-face {
@@ -155,6 +158,12 @@ a {
     overflow: hidden;
 }
 
+.hero-media {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+}
+
 .hero-image {
     position: absolute;
     inset: 0;
@@ -164,6 +173,72 @@ a {
     object-fit: cover;
     object-position: center;
     pointer-events: none;
+    opacity: 0.08;
+    filter: brightness(0.18) saturate(0.2) sepia(0.12);
+}
+
+.hero-develop {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 1;
+    background: linear-gradient(
+        180deg,
+        rgba(244, 244, 243, 0.96) 0%,
+        rgba(244, 244, 243, 0.94) 100%
+    );
+}
+
+.hero-media.is-developing .hero-image {
+    will-change: opacity, filter;
+    animation: hero-photo-develop var(--hero-develop-duration) var(--hero-develop-ease) var(--hero-develop-delay) forwards;
+}
+
+.hero-media.is-developing .hero-develop {
+    animation: hero-wash-clear var(--hero-develop-duration) var(--hero-develop-ease) var(--hero-develop-delay) forwards;
+}
+
+.hero-media.is-developed .hero-image {
+    opacity: 1;
+    filter: none;
+}
+
+.hero-media.is-developed .hero-develop {
+    opacity: 0;
+}
+
+@keyframes hero-photo-develop {
+    from {
+        opacity: 0.08;
+        filter: brightness(0.18) saturate(0.2) sepia(0.12);
+    }
+
+    to {
+        opacity: 1;
+        filter: brightness(1) saturate(1) sepia(0);
+    }
+}
+
+@keyframes hero-wash-clear {
+    to {
+        opacity: 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-image {
+        opacity: 1;
+        filter: none;
+    }
+
+    .hero-develop {
+        display: none;
+    }
+
+    .hero-media.is-developing .hero-image,
+    .hero-media.is-developing .hero-develop {
+        animation: none;
+    }
 }
 
 /* Section: title row — 579:6542 + 579:6544 */

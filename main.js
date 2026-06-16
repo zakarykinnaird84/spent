@@ -1,6 +1,13 @@
 (function () {
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+    const heroMedia = document.querySelector(".hero-media");
+
+    if (heroMedia && prefersReducedMotion) {
+        heroMedia.classList.remove("is-developing");
+        heroMedia.classList.add("is-developed");
+    }
+
     const revealTargets = document.querySelectorAll(
         ".story-image, .story-line, .site-footer__text, .site-footer__title, .site-footer__closing .app-store-badge"
     );
