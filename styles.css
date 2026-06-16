@@ -9,7 +9,7 @@
     --menu-padding: 20px;
     --section-gap: 48px;
     --title-size: 128px;
-    --story-size: 40px;
+    --story-size: clamp(32px, 5.5vw, 88px);
     --story-block-gap: 120px;
     --footer-height: 80vh;
     --footer-text-size: clamp(40px, 6vw, 72px);
@@ -423,7 +423,6 @@ a {
 
 @media (max-width: 768px) {
     :root {
-        --story-size: clamp(28px, 7vw, 36px);
         --story-block-gap: 72px;
         --footer-height: 65vh;
         --footer-text-size: clamp(32px, 9vw, 48px);
