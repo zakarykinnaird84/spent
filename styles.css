@@ -116,6 +116,12 @@ a {
     animation: nav-fade-in var(--reveal-duration) var(--reveal-ease) var(--nav-fade-delay) both;
 }
 
+html.nav-intro-seen .top-screen:has(.hero-media.is-developing) .menu,
+html.nav-intro-seen .top-screen:has(.hero-media.is-developing) .title-row .app-store-badge {
+    opacity: 1;
+    animation: none;
+}
+
 @keyframes nav-fade-in {
     from {
         opacity: 0;

@@ -1,7 +1,14 @@
 (function () {
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const navIntroKey = "spent-nav-intro-seen";
 
     const heroMedia = document.querySelector(".hero-media");
+
+    if (heroMedia?.classList.contains("is-developing")) {
+        try {
+            sessionStorage.setItem(navIntroKey, "1");
+        } catch (error) {}
+    }
 
     if (heroMedia && prefersReducedMotion) {
         heroMedia.classList.remove("is-developing");

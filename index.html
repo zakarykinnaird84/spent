@@ -12,6 +12,13 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <link rel="icon" type="image/svg+xml" href="images/favicon/favicon.svg">
+    <script>
+        try {
+            if (sessionStorage.getItem("spent-nav-intro-seen")) {
+                document.documentElement.classList.add("nav-intro-seen");
+            }
+        } catch (error) {}
+    </script>
 </head>
 <body>
     <div class="page" data-node-id="585:6584">
