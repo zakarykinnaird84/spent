@@ -27,6 +27,8 @@
     --footer-develop-duration: calc(var(--text-develop-duration) * 1.5);
     --footer-develop-delay: calc(var(--hero-develop-delay) * 2);
     --footer-reveal-duration: calc(var(--reveal-duration) * 1.5);
+    --link-hover-duration: 1.5s;
+    --link-hover-ease: cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
 @font-face {
@@ -139,10 +141,16 @@ a {
 
 .nav-link {
     font-weight: 500;
+    transition: color var(--link-hover-duration) var(--link-hover-ease);
 }
 
 .nav-link--active {
     color: var(--night);
+}
+
+.nav-link--active:hover,
+.nav-link--active:focus-visible {
+    color: var(--text-dimmed);
 }
 
 .nav-link--spent {
@@ -165,6 +173,11 @@ a {
     justify-self: center;
 }
 
+.nav-link--dimmed:hover,
+.nav-link--dimmed:focus-visible {
+    color: var(--night);
+}
+
 .nav-link--about {
     grid-column: 3;
     justify-self: center;
@@ -172,6 +185,11 @@ a {
 
 .nav-link--dimmed[aria-disabled="true"] {
     cursor: default;
+}
+
+.nav-link--dimmed[aria-disabled="true"]:hover,
+.nav-link--dimmed[aria-disabled="true"]:focus-visible {
+    color: var(--text-dimmed);
 }
 
 .nav-link--download {
@@ -743,7 +761,7 @@ a {
 
 .site-footer__legal-link {
     color: var(--text-dimmed);
-    transition: color 0.2s ease;
+    transition: color var(--link-hover-duration) var(--link-hover-ease);
 }
 
 .site-footer__legal-link--terms {
@@ -756,7 +774,8 @@ a {
     justify-self: end;
 }
 
-.site-footer__legal-link:hover {
+.site-footer__legal-link:hover,
+.site-footer__legal-link:focus-visible {
     color: var(--night);
 }
 
