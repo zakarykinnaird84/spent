@@ -8,7 +8,7 @@
         heroMedia.classList.add("is-developed");
     }
 
-    const storyMediaTargets = document.querySelectorAll(".story-media");
+    const storyMediaTargets = document.querySelectorAll(".story-media:not(.story-media--video)");
     const revealTargets = document.querySelectorAll(
         ".story-line, .site-footer__text, .site-footer__title, .site-footer__closing .app-store-badge"
     );
@@ -46,4 +46,8 @@
 
     storyMediaTargets.forEach((el) => observer.observe(el));
     revealTargets.forEach((el) => observer.observe(el));
+
+    document.querySelectorAll(".hero-video").forEach((video) => {
+        video.play().catch(() => {});
+    });
 })();

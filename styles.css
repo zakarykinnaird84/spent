@@ -64,6 +64,11 @@ img {
     max-width: 100%;
 }
 
+video {
+    display: block;
+    max-width: 100%;
+}
+
 a {
     color: inherit;
     text-decoration: none;
@@ -145,12 +150,22 @@ a {
     justify-self: start;
 }
 
+.nav-link--spent.nav-link--dimmed {
+    grid-column: 1;
+    justify-self: start;
+}
+
 .nav-spacer {
     grid-column: 2;
 }
 
 .nav-link--dimmed {
     color: var(--text-dimmed);
+    grid-column: 3;
+    justify-self: center;
+}
+
+.nav-link--about {
     grid-column: 3;
     justify-self: center;
 }
@@ -232,6 +247,51 @@ a {
     opacity: 0;
 }
 
+.hero-media--video .hero-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    object-fit: cover;
+    object-position: center;
+    pointer-events: none;
+    opacity: 0.08;
+    filter: brightness(0.18) saturate(0.2) sepia(0.12);
+}
+
+.hero-media--video.is-developing .hero-video {
+    will-change: opacity, filter;
+    animation: hero-photo-develop var(--hero-develop-duration) var(--hero-develop-ease) var(--hero-develop-delay) forwards;
+}
+
+.hero-media--video.is-developing .hero-develop {
+    animation: hero-wash-clear var(--hero-develop-duration) var(--hero-develop-ease) var(--hero-develop-delay) forwards;
+}
+
+.hero-media--video.is-developed .hero-video {
+    opacity: 1;
+    filter: none;
+}
+
+.hero-media--video.is-developed .hero-develop {
+    opacity: 0;
+}
+
+.hero-video--mobile {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .hero-video--desktop {
+        display: none;
+    }
+
+    .hero-video--mobile {
+        display: block;
+    }
+}
+
 @keyframes hero-photo-develop {
     from {
         opacity: 0.08;
@@ -251,7 +311,8 @@ a {
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .hero-image {
+    .hero-image,
+    .hero-media--video .hero-video {
         opacity: 1;
         filter: none;
     }
@@ -263,6 +324,8 @@ a {
 
     .hero-media.is-developing .hero-image,
     .hero-media.is-developing .hero-develop,
+    .hero-media--video.is-developing .hero-video,
+    .hero-media--video.is-developing .hero-develop,
     .story-media.is-visible .story-image,
     .story-media.is-visible .story-develop {
         animation: none;
@@ -431,6 +494,33 @@ a {
     width: 100%;
     padding-left: var(--page-padding);
     padding-right: var(--page-padding);
+}
+
+/* About page — frame 595:8399 */
+.about {
+    width: 100%;
+    padding-left: var(--page-padding);
+    padding-right: var(--page-padding);
+    padding-bottom: var(--page-padding);
+    display: flex;
+    flex-direction: column;
+    gap: var(--story-block-gap);
+}
+
+.about-copy {
+    padding-top: var(--story-block-gap);
+}
+
+.about-copy .story-copy {
+    gap: 0.75em;
+}
+
+.about-copy .story-line--lead {
+    margin-bottom: 0.75em;
+}
+
+.about-copy .story-line--close {
+    margin-top: 2.5em;
 }
 
 .story-intro {
