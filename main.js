@@ -1,6 +1,18 @@
 (function () {
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const navIntroKey = "spent-nav-intro-seen";
+    const compactTopMaxHeight = 700;
+
+    function lockTopScreenHeight() {
+        const height = Math.round(window.innerHeight);
+
+        document.documentElement.style.setProperty("--top-screen-height", `${height}px`);
+        document.documentElement.classList.toggle("compact-top", height <= compactTopMaxHeight);
+    }
+
+    window.addEventListener("orientationchange", () => {
+        window.setTimeout(lockTopScreenHeight, 150);
+    });
 
     const heroMedia = document.querySelector(".hero-media");
 

@@ -17,11 +17,20 @@
     <link rel="apple-touch-icon" href="images/favicon/apple-touch-icon.png">
     <link rel="manifest" href="images/favicon/site.webmanifest">
     <script>
-        try {
-            if (sessionStorage.getItem("spent-nav-intro-seen")) {
-                document.documentElement.classList.add("nav-intro-seen");
+        (function () {
+            var height = Math.round(window.innerHeight);
+
+            document.documentElement.style.setProperty("--top-screen-height", height + "px");
+            if (height <= 700) {
+                document.documentElement.classList.add("compact-top");
             }
-        } catch (error) {}
+
+            try {
+                if (sessionStorage.getItem("spent-nav-intro-seen")) {
+                    document.documentElement.classList.add("nav-intro-seen");
+                }
+            } catch (error) {}
+        })();
     </script>
 </head>
 <body>
