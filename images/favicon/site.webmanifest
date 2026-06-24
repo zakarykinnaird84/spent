@@ -1,6 +1,7 @@
 {
-  "name": "Spent.",
+  "name": "Spent — A day. A year. A life.",
   "short_name": "Spent",
+  "description": "A calm, minimal iOS app — a mindful grid of dots for your day, year, and life.",
   "icons": [
     {
       "src": "web-app-manifest-192x192.png",
