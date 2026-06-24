@@ -816,3 +816,112 @@ html.compact-top .title-row {
         --story-block-gap: 56px;
     }
 }
+
+/* Legal pages — privacy, terms */
+.legal-header {
+    width: 100%;
+    padding-top: calc(env(safe-area-inset-top) + var(--menu-padding));
+    padding-left: var(--page-padding);
+    padding-right: var(--page-padding);
+}
+
+.legal-header__menu {
+    width: 100%;
+    padding-top: var(--menu-padding);
+    padding-bottom: var(--menu-padding);
+}
+
+.legal-header__intro {
+    width: 100%;
+    max-width: 680px;
+    margin: 0 auto;
+    padding-top: var(--section-gap);
+    padding-bottom: calc(var(--section-gap) + 8px);
+}
+
+.legal-title {
+    font-family: "Instrument Serif", Georgia, "Times New Roman", serif;
+    font-size: clamp(48px, 10vw, 96px);
+    font-weight: 400;
+    line-height: 1;
+    color: var(--text-primary);
+}
+
+.legal-meta {
+    margin-top: 16px;
+    font-family: "Helvetica Neue", Helvetica, Inter, sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.4;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--text-dimmed);
+}
+
+.legal {
+    width: 100%;
+    max-width: 680px;
+    margin: 0 auto;
+    padding-left: var(--page-padding);
+    padding-right: var(--page-padding);
+    padding-bottom: calc(var(--story-block-gap) + var(--page-padding));
+}
+
+.legal-section + .legal-section {
+    margin-top: 40px;
+}
+
+.legal-heading {
+    font-family: "Helvetica Neue", Helvetica, Inter, sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.4;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--night);
+    margin-bottom: 12px;
+}
+
+.legal p {
+    font-family: "Helvetica Neue", Helvetica, Inter, sans-serif;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 1.55;
+    color: var(--text-primary);
+}
+
+.legal p + p {
+    margin-top: 1em;
+}
+
+.legal a {
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+    transition: color var(--link-hover-duration) var(--link-hover-ease);
+}
+
+.legal a:hover,
+.legal a:focus-visible {
+    color: var(--night);
+}
+
+.legal-list {
+    margin-top: 1em;
+    padding-left: 1.25em;
+    font-family: "Helvetica Neue", Helvetica, Inter, sans-serif;
+    font-size: 17px;
+    line-height: 1.55;
+    color: var(--text-primary);
+}
+
+.legal-list li + li {
+    margin-top: 0.5em;
+}
+
+.site-footer--compact {
+    min-height: auto;
+}
+
+.site-footer--compact .site-footer__closing {
+    min-height: calc(var(--title-size) + var(--section-gap) + var(--menu-padding) * 2);
+}
