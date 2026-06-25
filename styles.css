@@ -625,15 +625,16 @@ html.compact-top .title-row {
     background-position: 0 100%;
     background-repeat: no-repeat;
     background-size: 0% 1px;
-    transition:
-        background-size var(--link-hover-duration) var(--link-hover-ease),
-        color var(--link-hover-duration) var(--link-hover-ease);
+    transition: background-size var(--link-hover-duration) var(--link-hover-ease);
 }
 
 .story-copy a:hover,
 .story-copy a:focus-visible {
     color: var(--text-dimmed);
     background-size: 100% 1px;
+    transition:
+        background-size var(--link-hover-duration) var(--link-hover-ease),
+        color var(--link-hover-duration) var(--link-hover-ease);
 }
 
 @media (prefers-reduced-motion: reduce) {
