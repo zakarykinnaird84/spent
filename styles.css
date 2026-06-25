@@ -620,14 +620,29 @@ html.compact-top .title-row {
 
 .story-copy a {
     color: inherit;
-    text-decoration: underline;
-    text-underline-offset: 0.12em;
-    transition: color var(--link-hover-duration) var(--link-hover-ease);
+    text-decoration: none;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 1px;
+    transition:
+        background-size var(--link-hover-duration) var(--link-hover-ease),
+        color var(--link-hover-duration) var(--link-hover-ease);
 }
 
 .story-copy a:hover,
 .story-copy a:focus-visible {
     color: var(--text-dimmed);
+    background-size: 100% 1px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .story-copy a:hover,
+    .story-copy a:focus-visible {
+        text-decoration: underline;
+        text-underline-offset: 0.12em;
+        background-size: 0% 1px;
+    }
 }
 
 /* Scroll reveal — polaroid develop on editorial text */
