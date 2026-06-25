@@ -618,6 +618,18 @@ html.compact-top .title-row {
     margin-top: 0.65em;
 }
 
+.story-copy a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 0.12em;
+    transition: color var(--link-hover-duration) var(--link-hover-ease);
+}
+
+.story-copy a:hover,
+.story-copy a:focus-visible {
+    color: var(--text-dimmed);
+}
+
 /* Scroll reveal — polaroid develop on editorial text */
 @keyframes text-polaroid-develop {
     from {
